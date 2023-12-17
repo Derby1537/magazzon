@@ -18,7 +18,7 @@ import jakarta.servlet.http.HttpServletResponse;
 public class app extends HttpServlet{
     
     Connection connection; 
-    final String connectionString = "jdbc:mysql://localhost:3306/magazzon?user=root&password=ruttolibero";
+    final String connectionString = "jdbc:mysql://localhost:3306/magazzonß?user=root&password=ruttolibero";
     
     public void init() {
         // init db
@@ -92,6 +92,11 @@ public class app extends HttpServlet{
         PrintWriter page=null;
         page=initializeWebPage(response);
         page.println("<h1>Welcome into Magazzon</h1>");
+        if (connection==null) {
+            page.println("<h1>Database not connected</h1>");
+            closeWebPage(page);
+            return;
+        }
         // 1.2 stampa dell'elenco dei prodotti con giacenza > 0
         ResultSet products=getAvailableProducts();
         showAvailableProducts(products,page);
@@ -114,6 +119,11 @@ public class app extends HttpServlet{
         PrintWriter page=null;
         int rows=0;
         page=initializeWebPage(response);
+        if (connection==null) {
+            page.println("<h1>Database not connected</h1>");
+            closeWebPage(page);
+            return;
+        }
         String name=request.getParameter("name");
         int quantity=Integer.parseInt(request.getParameter("quantity"));
         float price=Float.parseFloat(request.getParameter("price"));
