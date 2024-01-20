@@ -1,0 +1,16 @@
+<h3 th:text="${prodotto.nome_prodotto}"></h3>
+<p>
+     - Nome Prodotto: 
+    <span th:text="${prodotto.nome_prodotto}"></span>
+</p>
+<p>
+     - Giacenza: 
+    <span th:text="${prodotto.giacenza}"></span>
+</p>
+<p>
+     - Prezzo: €
+    <span th:text="${prodotto.prezzo}"></span>
+</p>
+<button th:onclick="'window.location.href=\'' + @{/prodotti/{id}(id=${prodotto.id})} + '/acquista\''">🛒 Acquista</button><br>
+<button th:onclick="'window.location.href=\'' + @{/prodotti/{id}(id=${prodotto.id})} + '/modifica\''">✏️ Modifica</button>
+<button th:onclick="'window.location.href=\'' + @{/prodotti/{id}(id=${prodotto.id})} + '/elimina\''">❌ Elimina</button><br><br>

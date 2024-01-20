@@ -1,0 +1,8 @@
+<h3>Acquista <span th:text="${prodotto.nome_prodotto}"></span></h3>
+Giacenza prodotto: <span th:text="${prodotto.giacenza}"></span><br>
+Prezzo: €<span th:text="${prodotto.prezzo}"></span><br>
+<form th:action="@{/prodotti/{id}(id=${prodotto.id})} + '/acquista'" method="post">
+    <label for="quantita">Seleziona la quantità: </label>
+    <input type="number" name="quantita" min="1" th:max="${prodotto.giacenza}" th:value=${quantita}> <span th:if="${errore != null}" th:text="${errore}"></span> <br>
+    <input type="submit" value="acquista">
+</form>

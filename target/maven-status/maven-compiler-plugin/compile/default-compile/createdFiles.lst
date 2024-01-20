@@ -1,0 +1,4 @@
+CRUD/Magazzino/MagazzinoApplication.class
+CRUD/Magazzino/data/ProdottiRepository.class
+CRUD/Magazzino/models/Prodotto.class
+CRUD/Magazzino/controllers/ProdottiController.class

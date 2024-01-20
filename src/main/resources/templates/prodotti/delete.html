@@ -1,0 +1,5 @@
+<h3>Elimina <span th:text="${prodotto.nome_prodotto}"></span></h3>
+<form th:action="@{/prodotti/{id}(id=${prodotto.id})} + '/elimina'" method="post">
+    <p>Sei sicuro di voler eliminare questo prodotto?</p>
+    <input type="submit" value="si"> <button type="button" th:onclick="'window.location.href=\'' + @{/prodotti/{id}(id=${prodotto.id})} + '\''">no</button>
+</form>

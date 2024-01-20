@@ -1,0 +1,10 @@
+<h3>Inserisci un nuovo prodotto</h3>
+<form th:action="@{/prodotti/inserisci}" method="POST" th:object="${prodotto}">
+    <label for="nome_prodotto">Nome prodotto: </label>
+    <input type="text" th:field="*{nome_prodotto}" name="nome_prodotto"> <span th:if="${#fields.hasErrors('nome_prodotto')}" th:errors="*{nome_prodotto}"></span> <br>
+    <label for="giacenza">Giacenza: </label>
+    <input type="number" th:field="*{giacenza}" name="giacenza"> <span th:if="#{fields.hasErrors('giacenza')}" th:errors="*{giacenza}"></span> <br>
+    <label for="prezzo">Prezzo: €</label>
+    <input type="number" th:field="*{prezzo}" step="0.01" name="prezzo"> <span th:if="#{fields.hasErrors('prezzo')}" th:errors="*{prezzo}"></span><br>
+    <input type="submit" value="inserisci">
+</form>

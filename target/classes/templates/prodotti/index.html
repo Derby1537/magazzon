@@ -1,0 +1,10 @@
+<h3>Ecco la lista dei prodotti nel magazzino</h3>
+<form>
+    <label for="search">Cerca un prodotto </label>
+    <input type="text" name="search" th:value="${searchValue}"><input type="submit" value="🔍"> <button type="button" onclick="window.location.href='/prodotti'">reset</button>
+</form>
+<button onclick="window.location.href='/prodotti/inserisci'">Inserisci un nuovo prodotto</button>
+<p th:each="prodotto:${prodotti}"> - 
+    Nome prodotto: <span th:text="${prodotto.nome_prodotto}"></span> 
+    <button th:onclick="'window.location.href=\'' + @{/prodotti/{id}(id=${prodotto.id})} + '\''">ℹ️ info</button>    
+</p>
